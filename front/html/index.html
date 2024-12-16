@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <script type="text/javascript" src="../js/index.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="titulo">
+        <h1>Lista de Tarefas</h1>
+    </div>
+    <details id="feitas">
+        <summary>Concluídas</summary>
+    </details>
+    <details id="fazendo">
+        <summary>Em processo</summary>
+    </details>
+    <details id="nao-feitas">
+        <summary>Não Iniciado</summary>
+    </details>
+    <button id="botfixo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(254, 254, 254);">
+            <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
+        </svg>
+    </button>
+    <dialog>
+        <h2>Adicionar Tarefa</h2>
+        <div class="input">
+            <label>Tarefa:</label>
+            <input type="text" name="tarefa" id="tarefa" placeholder="Descreva aqui sua tarefa..." required maxlength="100">
+        </div>
+        <div class="button-center">
+            <button type="submit" class="confirmar">Confirmar</button>
+            <button type="button" class="fechar">Cancelar</button>
+        </div>
+    </dialog>
+</body>
+</html>

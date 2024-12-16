@@ -1,0 +1,155 @@
+/* Config do details */
+details {
+    background-color: #1b1a1a;
+    color: #fff;
+    border-radius: 7px;
+    padding: 10px;
+    width: 98%;
+    margin-bottom: 10px;
+    transition: all 0.3 ease;
+    border: 2px solid #ffffff1d;
+    display: flex;
+    align-items: center;
+}
+
+details[open] {
+    background-color: #1b1a1a;
+    border-radius: 7px;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Config do h1 */
+h1 {
+    text-align: center;
+    color: white;
+}
+
+/* Config da página */
+body {
+    background-color: #363434;
+    margin: 0;
+}
+
+/* Config do botao */
+#botfixo {
+    position: fixed;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#botfixo:hover {
+    background-color: #0056b3;
+}
+
+/* Config do dialog */
+dialog::backdrop {
+    background-color: rgb(0 0 0 / .3);
+}
+
+dialog {
+    border: none;
+    border-radius: .5rem;
+    box-shadow: rgb(0 0 0 / .3);
+    width: 30%;
+    margin-top: 14%;
+    margin-left: 35%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+dialog h2 {
+    margin: auto;
+    text-align: center;
+}
+
+dialog input {
+    background-color: #dfdfdf;
+    color: #000000;
+    width: 90%;
+    border: 2px black solid;
+    border-radius: 8px;
+    min-width: 280px;
+    padding: 5px;
+}
+
+dialog label {
+    text-align: center;
+    font-size: 20px;
+}
+
+dialog .input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+}
+
+form {
+    box-shadow: 0px 4px 16px rgb(0 0 0 / .3);
+}
+
+dialog button {
+    font: 400 1rem;
+    cursor: pointer;
+    width: 100%;
+    color: #fff;
+    background: #007BFF;
+    padding: 10px 0;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+dialog button:hover {
+    background: #0056b3;
+}
+
+dialog .button-center {
+    margin-left: 5%;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    gap: 10px; /* Espaço entre os botões */
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.item button {
+    height: 20px;
+    width: 100px;
+    border-radius: 5px;
+    position: fixed;
+    right: 50px;
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+}
+
+.item button:hover {
+    background-color: #0056b3;
+}
+
+.item p {
+    margin-left: 40px;
+}

@@ -25,3 +25,11 @@ export async function mudarTarefa(id, tarefa_atualizada) {
 
     return colecao.updateOne({_id: new ObjectId(objID)}, {$set:tarefa_atualizada});
 };
+
+export async function apagarTarefa(id) {
+    const db = conexao.db("Lista_Tarefas");
+    const colecao = db.collection("tarefas");
+    const objID = ObjectId.createFromHexString(id);
+
+    return colecao.deleteOne({_id: new ObjectId(objID) });
+};

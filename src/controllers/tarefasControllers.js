@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { getTarefas, NewTarefa, mudarTarefa } from "../models/tarefasModels.js";
+import { getTarefas, NewTarefa, mudarTarefa, apagarTarefa } from "../models/tarefasModels.js";
 import Configurar from "../../dirconfig.js";
 
 export async function listarTarefas(req, res) {
@@ -30,6 +30,19 @@ export async function atualizarTarefa(req, res) {
         const atualizacao = await mudarTarefa(id, tarefa_atualizada);
 
         res.status(200).json(atualizacao);
+    } catch (erro) {
+        console.error(erro.message);
+        res.status(500).json({"Erro":"Falha na requisição"});
+    };
+};
+
+export async function deletarTarefa(req, res) {
+    const id = req.params.id;
+
+    try {
+        const delecao = await apagarTarefa(id);
+
+        res.status(200).json(delecao);
     } catch (erro) {
         console.error(erro.message);
         res.status(500).json({"Erro":"Falha na requisição"});

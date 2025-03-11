@@ -9,8 +9,11 @@ fetch("http://127.0.0.1:3000/tarefas")                              // Acessa a 
         tarefas.forEach(tarefa => {                     // Percorre cada elemento da lista "tarefas", sendo cada elemento chamado de "tarefa"
             if (tarefa.status == "Concluída") {              // Se a tarefa estiver concluída
                 const p = document.createElement("p");       // Cria um elemento "p" para cada tarefa concluída
+                const div = document.createElement("div");
                 p.textContent = tarefa.descricao;            // O elemento recebe o descrição da tarefa como conteúdo
-                feitas.appendChild(p);                       // Adiciona o elemento p como filho do elemento que possui ID = feitas
+                div.className = "item";
+                feitas.appendChild(div);
+                div.appendChild(p);                       // Adiciona o elemento p como filho do elemento que possui ID = feitas
             } else if (tarefa.status == "Em processo") {                  // Se a tarefa estiver em processo
                 const p = document.createElement("p");                    // Cria um elemento "p" para cada tarefa em progresso
                 const div = document.createElement("div");                // Cria uma div para armazenar o elemento "p"

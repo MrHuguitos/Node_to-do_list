@@ -4,12 +4,9 @@ details {
     color: #fff;
     border-radius: 7px;
     padding: 10px;
-    width: 98%;
     margin-bottom: 10px;
     transition: all 0.3 ease;
     border: 2px solid #ffffff1d;
-    display: flex;
-    align-items: center;
 }
 
 details[open] {
@@ -63,29 +60,34 @@ dialog {
     border: none;
     border-radius: .5rem;
     box-shadow: rgb(0 0 0 / .3);
-    width: 30%;
-    margin-top: 14%;
-    margin-left: 35%;
+    width: 90%;
+    max-width: 400px;
+    position: fixed;
+    padding: 20px;
+    gap: 10px;
+}
+
+.dialog-content {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    gap: 10px;
 }
 
 dialog h2 {
     margin: auto;
     text-align: center;
+    margin-bottom: 30px;
 }
 
 dialog input {
     background-color: #dfdfdf;
     color: #000000;
-    width: 90%;
     border: 2px black solid;
     border-radius: 8px;
-    min-width: 280px;
-    padding: 5px;
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
 }
 
 dialog label {
@@ -121,7 +123,6 @@ dialog button:hover {
 }
 
 dialog .button-center {
-    margin-left: 5%;
     margin-top: 8px;
     display: flex;
     justify-content: space-between;

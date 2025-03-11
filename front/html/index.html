@@ -26,14 +26,15 @@
         </svg>
     </button>
     <dialog>
-        <h2>Adicionar Tarefa</h2>
-        <div class="input">
-            <label>Tarefa:</label>
-            <input type="text" name="tarefa" id="tarefa" placeholder="Descreva aqui sua tarefa..." required maxlength="100">
-        </div>
-        <div class="button-center">
-            <button type="submit" class="confirmar">Confirmar</button>
-            <button type="button" class="fechar">Cancelar</button>
+        <div class="dialog-content">
+            <h2>Adicionar Tarefa</h2>
+            <div class="input">
+                <input type="text" name="tarefa" id="tarefa" placeholder="Descreva aqui sua tarefa..." required maxlength="100" minlength="5">
+            </div>
+            <div class="button-center">
+                <button type="submit" class="confirmar">Confirmar</button>
+                <button type="button" class="fechar">Cancelar</button>
+            </div>
         </div>
     </dialog>
 </body>

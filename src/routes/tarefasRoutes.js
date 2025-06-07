@@ -1,6 +1,4 @@
 import express from "express";
-import multer from "multer";
-import cors from "cors";
 import { UsarHTML, listarTarefas, criarTarefas, atualizarTarefa, deletarTarefa } from "../controllers/tarefasControllers.js";
 
 const routes = (app) => {

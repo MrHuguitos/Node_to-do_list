@@ -1,4 +1,3 @@
-import fs from "fs";
 import path from "path";
 import { getTarefas, NewTarefa, mudarTarefa, apagarTarefa } from "../models/tarefasModels.js";
 import Configurar from "../../dirconfig.js";

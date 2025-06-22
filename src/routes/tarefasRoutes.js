@@ -1,14 +1,11 @@
 import express from "express";
-import { UsarHTML, listarTarefas, criarTarefas, atualizarTarefa, deletarTarefa } from "../controllers/tarefasControllers.js";
+import { listarTarefas, criarTarefas, atualizarTarefa, deletarTarefa } from "../controllers/tarefasControllers.js";
 
-const routes = (app) => {
-    app.use(express.json());
+const router = express.Router();
 
-    app.get("/", UsarHTML); // Retorna a página HTML
-    app.get("/tarefas", listarTarefas); // Retorna uma lista de tarefas
-    app.post("/novatarefa", criarTarefas); // Cria uma nova tarefa
-    app.put("/atualizar/:id", atualizarTarefa); // Atualizar uma tarefa existente
-    app.delete("/deletar/:id", deletarTarefa); // Deletar uma tarefa existente
-};
+router.get("/tarefas", listarTarefas); // Retorna uma lista de tarefas
+router.post("/novatarefa", criarTarefas); // Cria uma nova tarefa
+router.put("/atualizar/:id", atualizarTarefa); // Atualizar uma tarefa existente
+router.delete("/deletar/:id", deletarTarefa); // Deletar uma tarefa existente
 
-export default routes;
+export default router;

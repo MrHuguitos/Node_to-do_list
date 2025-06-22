@@ -1,35 +1,39 @@
-import "dotenv/config";
 import { ObjectId } from "mongodb";
-import conectarAoBanco from "../config/dbconfig.js";
+import clientPromise from "../config/dbconfig.js";
 
-const conexao = await conectarAoBanco(process.env.STRING_CONEXAO); // Faz a conexão com o banco de dados
+let db;
+
+async function init() {
+    if (db) return;
+    try {
+        const client = await clientPromise;
+        db = client.db("Lista_Tarefas");
+    } catch (error) {
+        console.error("Falha ao conectar ao banco de dados: ", error);
+        throw new Error("Não foi possível conectar ao banco de dados.");
+    }
+}
+
+(async () => {
+    await init();
+})();
 
 export async function getTarefas() {
-    const db = conexao.db("Lista_Tarefas"); // Acessa o banco de dados
     const colecao = db.collection("tarefas"); // Acessa a coleção do banco de dados
-
     return colecao.find().toArray(); // Retorna a coleção no formato de lista
 };
 
-export async function NewTarefa(newtarefa) {
-    const db = conexao.db("Lista_Tarefas"); 
+export async function NewTarefa(newtarefa) { 
     const colecao = db.collection("tarefas");
-
     return colecao.insertOne(newtarefa);
 };
 
 export async function mudarTarefa(id, tarefa_atualizada) {
-    const db = conexao.db("Lista_Tarefas");
     const colecao = db.collection("tarefas");
-    const objID = ObjectId.createFromHexString(id);
-
-    return colecao.updateOne({_id: new ObjectId(objID)}, {$set:tarefa_atualizada});
+    return colecao.updateOne({ _id: new ObjectId(id)}, { $set: tarefa_atualizada });
 };
 
 export async function apagarTarefa(id) {
-    const db = conexao.db("Lista_Tarefas");
     const colecao = db.collection("tarefas");
-    const objID = ObjectId.createFromHexString(id);
-
-    return colecao.deleteOne({_id: new ObjectId(objID) });
+    return colecao.deleteOne({ _id: new ObjectId(id) });
 };

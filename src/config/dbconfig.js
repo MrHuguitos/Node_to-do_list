@@ -1,17 +1,23 @@
 import { MongoClient } from 'mongodb';
 
-export default async function conectarAoBanco(stringConexao) {
-    let mongoClient;
+const uri = process.env.STRING_CONEXAO;
 
-    try {
-        mongoClient = new MongoClient(stringConexao);
-        console.log('Conectando ao cluster do banco de dados...');
-        await mongoClient.connect();
-        console.log('Conectado ao MongoDB Atlas com sucesso!');
+if (!uri) {
+    throw new Error('A variável de ambiente não foi definida.');
+};
 
-        return mongoClient;
-    } catch (erro) {
-        console.error('Falha na conexão com o banco!', erro);
-        process.exit();
-    }
-}
+let client;
+let clientPromise;
+
+if (process.env.NODE_ENV === "development") {
+    if (!global._mongoClientPromise) {
+        client = new MongoClient(uri);
+        global._mongoClientPromise = client.connect();
+    };
+    clientPromise = global._mongoClientPromise;
+} else {
+    client = new MongoClient(uri);
+    clientPromise = client.connect();
+};
+
+export default clientPromise;

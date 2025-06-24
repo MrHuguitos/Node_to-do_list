@@ -12,11 +12,7 @@ async function init() {
         console.error("Falha ao conectar ao banco de dados: ", error);
         throw new Error("Não foi possível conectar ao banco de dados.");
     }
-}
-
-(async () => {
-    await init();
-})();
+};
 
 export async function getTarefas() {
     await init();
@@ -25,16 +21,19 @@ export async function getTarefas() {
 };
 
 export async function NewTarefa(newtarefa) { 
+    await init();
     const colecao = db.collection("tarefas");
     return colecao.insertOne(newtarefa);
 };
 
 export async function mudarTarefa(id, tarefa_atualizada) {
+    await init();
     const colecao = db.collection("tarefas");
     return colecao.updateOne({ _id: new ObjectId(id)}, { $set: tarefa_atualizada });
 };
 
 export async function apagarTarefa(id) {
+    await init();
     const colecao = db.collection("tarefas");
     return colecao.deleteOne({ _id: new ObjectId(id) });
 };

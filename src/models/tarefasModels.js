@@ -19,6 +19,7 @@ async function init() {
 })();
 
 export async function getTarefas() {
+    await init();
     const colecao = db.collection("tarefas"); // Acessa a coleção do banco de dados
     return colecao.find().toArray(); // Retorna a coleção no formato de lista
 };

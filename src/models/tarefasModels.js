@@ -11,7 +11,7 @@ async function init() {
     } catch (error) {
         console.error("Falha ao conectar ao banco de dados: ", error);
         throw new Error("Não foi possível conectar ao banco de dados.");
-    }
+    };
 };
 
 export async function getTarefas() {

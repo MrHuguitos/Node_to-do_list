@@ -37,7 +37,7 @@ function carregarTarefas() {
             });
         })
         .catch(error => console.error("Erro ao carregar tarefas: ", error));
-}
+};
 
 // Carregar tarefas quando a página for aberta
 document.addEventListener("DOMContentLoaded", carregarTarefas);

@@ -1,6 +1,6 @@
 # 📝 Aplicação Full-Stack de Lista de Tarefas (Node.js To-Do List)
 
-![Capa do Projeto To-Do List](https://github.com/user-attachments/assets/a49aff62-d3d0-48c9-9225-2f476b9ab5cf)
+![Capa do Projeto To-Do List](https://github.com/user-attachments/assets/6ca693b6-2fb8-473f-9377-730bd167900f)
 
 > Aplicação web full-stack para gerenciamento de tarefas, construída com Node.js, Express.js e MongoDB. O projeto demonstra a implementação completa de operações CRUD (Create, Read, Update, Delete).
 

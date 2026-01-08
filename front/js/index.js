@@ -18,46 +18,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Lógica GET
     function carregarTarefas() {
+        // Ícones SVG
+        const iconCheck = `<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" ><path d="M13.29 7.29 7 13.58l-2.29-2.29L3.3 12.7l3 3c.2.2.45.29.71.29s.51-.1.71-.29l7-7-1.41-1.41Zm-.29 6.3-.79-.79-1.41 1.41 1.5 1.5c.2.2.45.29.71.29s.51-.1.71-.29l7-7-1.41-1.41-6.29 6.29Z"></path></svg>`;
+        const iconPlay = `<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" ><path d="M6.51 18.87a1 1 0 0 0 1-.01l10-6c.3-.18.49-.51.49-.86s-.18-.68-.49-.86l-10-6a.99.99 0 0 0-1.01-.01c-.31.18-.51.51-.51.87v12c0 .36.19.69.51.87ZM8 7.77 15.06 12 8 16.23z"></path></svg>`;
+        const iconTrash = `<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24" ><path d="M17 6V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H2v2h2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8h2V6zM9 4h6v2H9zM6 20V8h12v12z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg>`;
+
         fetch("/api/tarefas")
             .then(response => {
                 if (!response.ok) throw new Error("Falha ao carregar palavras do servidor");
                 return response.json();
             })
             .then(tarefas => {
-                const feitas = document.getElementById("feitas");
-                const fazendo = document.getElementById("fazendo");
                 const nao_feitas = document.getElementById("nao-feitas");
+                const fazendo = document.getElementById("fazendo");
+                const feitas = document.getElementById("feitas");
 
-                feitas.innerHTML = '<summary>Concluídas</summary>';
+                nao_feitas.innerHTML = '<summary>Não Iniciadas</summary>';
                 fazendo.innerHTML = '<summary>Em processo</summary>';
-                nao_feitas.innerHTML = '<summary>Não Iniciado</summary>';
+                feitas.innerHTML = '<summary>Concluídas</summary>';
+                
 
                 tarefas.forEach(tarefa => {
-                    const p = document.createElement("p");
+                    const span = document.createElement("span");
                     const div = document.createElement("div");
                     const btn = document.createElement("button");
 
-                    p.textContent = tarefa.descricao;
+                    span.textContent = tarefa.descricao;
+                    span.className = "task-text";
                     div.className = "item";
                     btn.id = tarefa._id;
 
                     if (tarefa.status == "Concluída") {
                         btn.className = "deletar";
-                        btn.textContent = "Deletar";
+                        btn.innerHTML = iconTrash;
+                        btn.title = "Deletar tarefa";
                         feitas.appendChild(div);
                     } else if (tarefa.status == "Em processo") {
-                        btn.className = "atualizar";
-                        btn.textContent = "Finalizar";
+                        btn.className = "finalizar";
+                        btn.innerHTML = iconCheck;
+                        btn.title = "Finalizar tarefa";
                         fazendo.appendChild(div);
                     } else {
-                        btn.className = "atualizar";
-                        btn.textContent = "Iniciar";
+                        btn.className = "iniciar";
+                        btn.innerHTML = iconPlay;
+                        btn.title = "Iniciar tarefa";
                         nao_feitas.appendChild(div);
-
                     };
 
-                    div.appendChild(p);
                     div.appendChild(btn);
+                    div.appendChild(span);
                 });
             })
             .catch(error => console.error("Erro ao carregar tarefas: ", error));
@@ -113,9 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const id_tarefa = targetButton.id;
 
         // Lógica PUT
-        if (targetButton.classList.contains("atualizar")) {
-            const acao = targetButton.textContent;
-            let novoStatus = (acao === "Finalizar") ? "Concluída" : "Em processo";
+        if (targetButton.classList.contains("finalizar") || targetButton.classList.contains("iniciar")) {
+            const acao = targetButton.classList.contains("finalizar") ? "finalizar" : "iniciar";
+            let novoStatus = (acao === "finalizar") ? "Concluída" : "Em processo";
 
             fetch(`/api/atualizar/${id_tarefa}`, {
                 method: "PUT",

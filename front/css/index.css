@@ -179,19 +179,30 @@ dialog .button-center {
 
 .item button {
     height: 20px;
-    width: 100px;
-    border-radius: 5px;
+    width: 20px;
+    border-radius: 50%;
     position: fixed;
-    right: 50px;
-    background-color: #007BFF;
+    background-color: #1b1a1a;
     border: none;
     color: #fff;
+    transition: all 0.3s ease;
 }
 
-.item button:hover {
-    background-color: #0056b3;
+.item .deletar:hover {
+    color: #ff1818;
+    transform: scale(1.1);
 }
 
-.item p {
+.item .finalizar:hover {
+    background-color: #56ff18;
+    transform: scale(1.1);
+}
+
+.item .iniciar:hover {
+    background-color: #ffffff;
+    transform: scale(1.1);
+}
+
+.item span {
     margin-left: 40px;
 }

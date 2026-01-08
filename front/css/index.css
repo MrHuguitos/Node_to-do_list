@@ -214,3 +214,43 @@ dialog .button-center {
     color: #007BFF;
     transform: scale(1.1);
 }
+
+/* SnackBars */
+#snackbar {
+    visibility: hidden; /* Invisível */
+    min-width: 250px;   /* Largura mínima */
+    background-color: #333; /* Cor padrão */
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;      /* Fica acima de tudo */
+    left: 50%;
+    bottom: 30px;       /* Distância do fundo */
+    transform: translateX(-50%); /* Centraliza exato no meio */
+    font-size: 16px;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease-in-out, bottom 0.5s ease-in-out;
+}
+
+/* Classe para MOSTRAR o snackbar */
+#snackbar.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px; /* Pequeno efeito de subida */
+}
+
+/* Cores dinâmicas */
+#snackbar.sucesso {
+    background-color: #28a745; /* Verde */
+}
+
+#snackbar.erro {
+    background-color: #dc3545; /* Vermelho */
+}
+
+#snackbar.aviso {
+    background-color: #ffc107; /* Amarelo */
+    color: #333;
+}

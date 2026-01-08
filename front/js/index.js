@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const descricaoTarefa = inputTarefa.value;
 
             if (!descricaoTarefa) {
-                alert("A descrição da tarefa não pode estar vazia.");
+                mostrarSnackbar("A descrição não pode estar vazia!", "aviso");
                 return;
             };
 
@@ -101,14 +101,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     return response.json();
                 })
                 .then(() => {
-                    alert("Tarefa adicionada com sucesso!");
+                    mostrarSnackbar("Tarefa adicionada.", "sucesso");
                     inputTarefa.value = "";
                     modal.close();
                     carregarTarefas();
                 })
                 .catch((error) => {
                     console.error("Erro ao enviar tarefa: ", error);
-                    alert("Falha ao adicionar tarefa...")
+                    mostrarSnackbar("Falha ao criar tarefa...", "erro");
                 });
         };
     };
@@ -136,12 +136,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     return response.json();
                 })
                 .then(() => {
-                    alert("Tarefa atualizada com sucesso!");
+                    mostrarSnackbar("Status atualizado!", "sucesso");
                     carregarTarefas();
                 })
                 .catch(error => {
                     console.error("Erro ao atualizar tarefa: ", error);
-                    alert("Falha ao atualizar tarefa...");
+                    mostrarSnackbar("Falha ao atualizar status...", "erro");
                 });
 
         // Lógica DELETE
@@ -157,13 +157,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     return response.json();
                 })
                 .then(() => {
-                    alert("Tarefa deletada com sucesso!");
+                    mostrarSnackbar("Tarefa removida.", "sucesso");
                     carregarTarefas();
                 })
                 .catch(error => {
                     console.error("Erro ao deletar tarefa: ", error);
-                    alert("Falha ao deletar tarefa...");
+                    mostrarSnackbar("Falha ao remover tarefa...", "erro");
                 });
         };
     });
+
+    // Função reutilizável para mostrar o Snackbar
+    function mostrarSnackbar(mensagem, tipo = 'sucesso') {
+        const snackbar = document.getElementById("snackbar");
+        
+        snackbar.textContent = mensagem;
+        snackbar.className = ""; 
+        snackbar.classList.add("show", tipo);
+
+        setTimeout(function() {
+            snackbar.className = snackbar.className.replace("show", "");
+        }, 3000);
+    };
 });

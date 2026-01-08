@@ -1,3 +1,17 @@
+/* Geral  */
+body {
+    background-color: #363434;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Config do details */
 details {
     background-color: #1b1a1a;
@@ -7,6 +21,9 @@ details {
     margin-bottom: 10px;
     transition: all 0.3 ease;
     border: 2px solid #ffffff1d;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 1%;
 }
 
 details[open] {
@@ -20,51 +37,56 @@ summary {
     transition: color 0.3s ease;
 }
 
-/* Config do h1 */
+/* Titulo da página */
 h1 {
     text-align: center;
     color: white;
-}
-
-/* Config da página */
-body {
-    background-color: #363434;
-    margin: 0;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 /* Config do botao */
 #botfixo {
     position: fixed;
-    height: 60px;
+    height: 50px;
+    width: 50px;
     bottom: 20px;
     right: 20px;
-    padding: 10px 20px;
+    display: flex;             
+    justify-content: center;  
+    align-items: center;       
+    padding: 0;       
     background-color: #007BFF;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 #botfixo:hover {
     background-color: #0056b3;
+    transform: scale(1.1);
 }
 
 /* Config do dialog */
 dialog::backdrop {
-    background-color: rgb(0 0 0 / .3);
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 dialog {
+    width: 400px;
+    border-radius: 5px;
     border: none;
-    border-radius: .5rem;
-    box-shadow: rgb(0 0 0 / .3);
-    width: 90%;
-    max-width: 400px;
     position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 20px;
-    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .dialog-content {
@@ -83,7 +105,7 @@ dialog h2 {
 dialog input {
     background-color: #dfdfdf;
     color: #000000;
-    border: 2px black solid;
+    border: none;
     border-radius: 8px;
     width: 100%;
     max-width: 400px;
@@ -107,7 +129,7 @@ form {
     box-shadow: 0px 4px 16px rgb(0 0 0 / .3);
 }
 
-dialog button {
+dialog .confirmar {
     font: 400 1rem;
     cursor: pointer;
     width: 100%;
@@ -118,7 +140,7 @@ dialog button {
     transition: .3s;
 }
 
-dialog button:hover {
+dialog .confirmar:hover {
     background: #0056b3;
 }
 
@@ -128,6 +150,21 @@ dialog .button-center {
     justify-content: space-between;
     width: 90%;
     gap: 10px; /* Espaço entre os botões */
+}
+
+.btnFechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.btnFechar:hover {
+    background-color: white;
 }
 
 .item {

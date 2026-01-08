@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (buttonClose) buttonClose.addEventListener('click', () => modal.close());
 
     // Fechar o dialog ao clicar fora dele
-    if (sobreDialog) {
-        sobreDialog.addEventListener('click', (e) => {
-            if (e.target == sobreDialog) sobreDialog.close();
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target == modal) modal.close();
         });
     };
 

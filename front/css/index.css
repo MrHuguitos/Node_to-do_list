@@ -100,6 +100,7 @@ dialog h2 {
     margin: auto;
     text-align: center;
     margin-bottom: 30px;
+    margin-top: 10px;
 }
 
 dialog input {
@@ -134,6 +135,7 @@ dialog .confirmar {
     cursor: pointer;
     width: 100%;
     color: #fff;
+    border: none;
     background: #007BFF;
     padding: 10px 0;
     border-radius: 8px;
@@ -145,11 +147,11 @@ dialog .confirmar:hover {
 }
 
 dialog .button-center {
-    margin-top: 8px;
+    margin-top: 20px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
-    width: 90%;
-    gap: 10px; /* Espaço entre os botões */
+    width: 70%;
 }
 
 .btnFechar {
@@ -161,6 +163,8 @@ dialog .button-center {
     font-size: 24px;
     cursor: pointer;
     opacity: 0.7;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 .btnFechar:hover {

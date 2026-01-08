@@ -174,18 +174,30 @@ dialog .button-center {
 .item {
     display: flex;
     align-items: center;
-    height: 40px;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.task-text {
+    font-size: 16px;
+    line-height: 1;
 }
 
 .item button {
-    height: 20px;
-    width: 20px;
+    height: 24px;
+    width: 24px;
     border-radius: 50%;
-    position: fixed;
-    background-color: #1b1a1a;
     border: none;
     color: #fff;
     transition: all 0.3s ease;
+    display: flex;           
+    justify-content: center; 
+    align-items: center;     
+    padding: 0;           
+    background: transparent; 
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 .item .deletar:hover {
@@ -194,15 +206,11 @@ dialog .button-center {
 }
 
 .item .finalizar:hover {
-    background-color: #56ff18;
+    color: #56ff18;
     transform: scale(1.1);
 }
 
 .item .iniciar:hover {
-    background-color: #ffffff;
+    color: #007BFF;
     transform: scale(1.1);
-}
-
-.item span {
-    margin-left: 40px;
 }

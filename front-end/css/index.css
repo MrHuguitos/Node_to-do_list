@@ -32,17 +32,46 @@ details[open] {
 }
 
 summary {
+    font-family: "Poppins", sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 /* Titulo da página */
-h1 {
-    text-align: center;
+.titulo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.titulo h1 {
+    font-family: "Poppins", sans-serif;
     color: white;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin: 0;
+}
+
+.logout {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btnLogout {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.btnLogout:hover{
+    transform: scale(1.1);
+    opacity: 0.8;
 }
 
 /* Config do botao */

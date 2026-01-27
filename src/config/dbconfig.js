@@ -1,23 +1,13 @@
-import { MongoClient } from 'mongodb';
+import mongoose from "mongoose";
 
-const uri = process.env.STRING_CONEXAO;
-
-if (!uri) {
-    throw new Error('A variável de ambiente não foi definida.');
-};
-
-let client;
-let clientPromise;
-
-if (process.env.NODE_ENV === "development") {
-    if (!global._mongoClientPromise) {
-        client = new MongoClient(uri);
-        global._mongoClientPromise = client.connect();
+async function dbConnection() {
+    try {
+        await mongoose.connect(process.env.STRING_CONEXAO);
+        console.log("Conectado ao MongoDB com sucesso!");
+    } catch (error) {
+        console.error("Erro ao conectar ao MongoDB: ", error);
+        process.exit(1);
     };
-    clientPromise = global._mongoClientPromise;
-} else {
-    client = new MongoClient(uri);
-    clientPromise = client.connect();
 };
 
-export default clientPromise;
+export default dbConnection;

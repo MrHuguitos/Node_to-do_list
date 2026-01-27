@@ -6,18 +6,30 @@
             "use": "@vercel/node"
         },
         {
-            "src": "front/**",
+            "src": "front-end/**",
             "use": "@vercel/static"
         }
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
+            "src": "/auth/(.*)",
             "dest": "server.js"
         },
         {
+            "src": "/tasks/(.*)",
+            "dest": "server.js"
+        },
+        {
+            "src": "/",
+            "dest": "/front-end/index.html"
+        },
+        {
+            "src": "/login",
+            "dest": "/front-end/login.html"
+        },
+        {
             "src": "/(.*)",
-            "dest": "/front/$1"
+            "dest": "/front-end/$1"
         }
     ]
 }

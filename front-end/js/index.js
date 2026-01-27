@@ -82,13 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (tarefa.status === "Completed") {
                         classBtn = "deletar";
-                        btnHTML.innerHTML = iconTrash;
+                        btnHTML = iconTrash;
                     } else if (tarefa.status === "Ongoing") {
                         classBtn = "finalizar";
-                        btnHTML.innerHTML = iconCheck;
+                        btnHTML = iconCheck;
                     } else {
                         classBtn = "iniciar";
-                        btnHTML.innerHTML = iconPlay;
+                        btnHTML = iconPlay;
                     };
 
                     div.innerHTML = `<button id="${tarefa._id}" class="${classBtn}">${btnHTML}</button><span class="task-text">${tarefa.description}</span>`;

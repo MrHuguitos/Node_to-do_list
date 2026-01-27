@@ -16,7 +16,7 @@
             "dest": "server.js"
         },
         {
-            "src": "/tasks/(.*)",
+            "src": "/tasks(.*)",
             "dest": "server.js"
         },
         {

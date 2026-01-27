@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         return data;
                     });
                 })
-                .then(() => {
+                .then((data) => {
                     localStorage.setItem("token", data.token); // Salva o token
                     window.location.href = "/";
                 })

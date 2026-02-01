@@ -8,6 +8,6 @@ const tarefaSchema = new mongoose.Schema({
         ref: 'Usuario',
         required: true
     }
-});
+}, { collection: 'tarefas' });
 
 export default mongoose.model("Tarefa", tarefaSchema);
